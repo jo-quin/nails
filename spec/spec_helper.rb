@@ -19,11 +19,3 @@ require 'simplecov-console'
 SimpleCov.formatter = SimpleCov::Formatter::Console
 
 SimpleCov.start
-
-RSpec.configure do |config|
-  config.after(:suite) do
-    puts
-    puts "\e[31mAre you running rubocop? Just run: rubocop\e[0m"
-    puts "\e[31mAlso remember to commit when passing a new test!\e[0m"
-  end
-end
