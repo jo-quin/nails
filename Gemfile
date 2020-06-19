@@ -15,3 +15,7 @@ gem 'simplecov', '~> 0.18.5'
 gem 'simplecov-console', '~> 0.7.2'
 
 gem 'aruba', '~> 1.0'
+
+gem 'capybara', '~> 3.32'
+
+gem 'selenium-webdriver', '~> 3.142'
