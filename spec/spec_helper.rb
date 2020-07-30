@@ -17,10 +17,15 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.before(:each, type: :feature) do
-    Capybara.current_driver = :selenium_headless
+    Thread.new{ system('ruby server.rb') }
+    Capybara.current_driver = :selenium
     Capybara.app_host = 'http://localhost:8080'
     Capybara.server_host = 'localhost'
     Capybara.server_port = '8080'
+  end
+
+  config.after(:each, type: :feature) do
+    system('server_id=$(ps | grep server.rb | grep ruby | cut -c1-5); kill ${server_id}')
   end
 end
 
